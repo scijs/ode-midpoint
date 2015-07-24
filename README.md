@@ -34,7 +34,7 @@ var integrator = midpoint( y0, deriv, t0, dt )
 integrator.steps(n)
 
 // Integrate all the way around a circle:
-// => integrator.y = [ 1.0199349143076457, -0.00008432969374211775 ]
+// => integrator.y = [ 1.0000001939636542, 0.000041341220643982546 ]
 ```
 
 

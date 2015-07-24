@@ -1,7 +1,7 @@
 {
   "name": "ode-midpoint",
   "version": "1.0.0",
-  "description": "Integrate a system of ODEs using the Euler method",
+  "description": "Integrate a system of ODEs using the Second Order Runge-Kutta (Midpoint) method",
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha"

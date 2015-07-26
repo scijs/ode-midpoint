@@ -1,6 +1,6 @@
 {
   "name": "ode-midpoint",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Integrate a system of ODEs using the Second Order Runge-Kutta (Midpoint) method",
   "main": "lib/index.js",
   "scripts": {
@@ -23,7 +23,7 @@
   "author": "Ricky Reusser",
   "license": "MIT",
   "devDependencies": {
-    "chai": "^3.0.0",
+    "chai": "^3.2.0",
     "gulp-filter": "^2.0.2",
     "gulp-latex": "^1.0.1",
     "gulp-markdown-equations": "^1.2.0",
@@ -31,8 +31,5 @@
     "gulp-tap": "^0.1.3",
     "mocha": "^2.2.5"
   },
-  "dependencies": {
-    "compute-array-constructors": "^1.0.0",
-    "compute-dtype": "^1.0.0"
-  }
+  "dependencies": {}
 }

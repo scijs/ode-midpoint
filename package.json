@@ -1,6 +1,6 @@
 {
   "name": "ode-midpoint",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Integrate a system of ODEs using the Second Order Runge-Kutta (Midpoint) method",
   "main": "lib/index.js",
   "scripts": {

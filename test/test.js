@@ -24,7 +24,7 @@ Object.keys(ctors).forEach(function(dtype) {
       }
 
       t0 = 1.5
-      y0 = new Float64Array([1,0])
+      y0 = new ctor([1,0])
 
       integrator = midpoint( y0, f, t0, 1 )
     })

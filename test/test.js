@@ -28,12 +28,12 @@ Object.keys(ctors).forEach(function(dtype) {
         integrator = midpoint( y0, f, t0, 1/n )
       })
 
-      it('creates work arrays of the same size as the input',function() {
+      it('creates work arrays of the same type as the input',function() {
         assert.equal( integrator._k1.constructor, y0.constructor )
         assert.equal( integrator._k2.constructor, y0.constructor )
       })
 
-      it('creates work arrays of the same type as the input',function() {
+      it('creates work arrays of the same size as the input',function() {
         assert.equal( integrator._k1.length, y0.length )
         assert.equal( integrator._k2.length, y0.length )
       })
@@ -60,12 +60,12 @@ Object.keys(ctors).forEach(function(dtype) {
         integrator = midpoint( y0, f, t0, 1 )
       })
 
-      it('creates work arrays of the same size as the input',function() {
+      it('creates work arrays of the same type as the input',function() {
         assert.equal( integrator._k1.constructor, y0.constructor )
         assert.equal( integrator._k2.constructor, y0.constructor )
       })
 
-      it('creates work arrays of the same type as the input',function() {
+      it('creates work arrays of the same size as the input',function() {
         assert.equal( integrator._k1.length, y0.length )
         assert.equal( integrator._k2.length, y0.length )
       })

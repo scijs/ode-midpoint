@@ -93,6 +93,16 @@ Object.keys(ctors).forEach(function(dtype) {
 
     describe('convergence', function() {
 
+      it('local truncation error is ~ O(h^3) in time', function() {
+        // Integrate an exponential: dy/dt = -y  -->  y = exp(-t)
+        var result = richardson(function(h) {
+          var f = function(dydt, y) { dydt[0] = -y[0] }
+          return midpoint( new ctor([1]), f, 0, h ).step().y[0] - Math.exp(-h)
+        }, [0.06,0.02], { f: 0 } )
+
+        assert.closeTo( result.n, 3, 1e-2, 'n ~ 3' )
+      })
+
       it('local truncation error is order O(h^3)', function() {
         var result = richardson(function(h) {
 
@@ -109,7 +119,6 @@ Object.keys(ctors).forEach(function(dtype) {
       })
 
       it('total accumulated error is order O(h^2)', function() {
-
         var result = richardson(function(h) {
 
           // Integrate around a circle with this step size:
@@ -123,6 +132,26 @@ Object.keys(ctors).forEach(function(dtype) {
 
         assert.closeTo( result.n, 2, 1e-2, 'n ~ 2' )
       })
+
+      it('total accumulated error is order O(h^2) in all variables', function() {
+
+        var result = richardson(function(h) {
+          // Integrate around a circle at an accelerating rate
+          var f = function(dydt, y, t) {
+            var s =  Math.sin(t * Math.PI) * Math.PI / 2
+            dydt[0] = -y[1]* 2 * Math.PI * s
+            dydt[1] =  y[0]* 2 * Math.PI * s
+          }
+          var i = midpoint( new ctor([1,0]), f, 0, h ).steps( Math.floor(1/h+0.5))
+
+          // Return the distance from the expected endpoint:
+          return Math.sqrt( Math.pow(i.y[0]-1,2) + Math.pow(i.y[1],2) )
+
+        }, 0.01, { f: 0 } )
+
+        assert.closeTo( result.n, 2, 1e-2, 'n ~ 2' )
+      })
+
 
     })
 

@@ -17,6 +17,8 @@ var integrator = midpoint( y0, dydt, t0, dt )
 // Integrate 1000 steps:
 integrator.steps(n)
 
+console.log(integrator.y)
+
 // Integrate all the way around a circle:
 // => integrator.y = [ 1.0000001939636542, 0.000041341220643982546 ]
 
